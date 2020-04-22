@@ -6,7 +6,7 @@ Timestamp: 13:02:57
 This file contains a console based implementation of Tic Tac Toe using the MINIMAX Algorithm.
 
 Important: By default, the user is set to go first. But, AI can be set to go first by uncommenting
-the game.AI() method call on line:201 in main() function. However, it might take a few moments to get an 
+the game.AI() method call on line:202 in main() function. However, it might take a few moments to get an 
 output if the AI goes first.
 
 '''

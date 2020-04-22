@@ -2,7 +2,7 @@ import numpy as np
 
 class Game:
     def __init__(self):
-        #initializing the board and giving AI the first chance to play.
+        #Initializing the board.
         self.board = np.array(['_']*9)
         self.board = np.reshape(self.board, (3,3))
         self.ai = 'X'
@@ -76,26 +76,17 @@ class Game:
 
     # Function to add the current input to the board.
     def addToBoard(self, x, y):
-        # If the location is available, update the board, check 
-        # for winner and call AI.
-        # if self.checkLocation(x, y):
+        # Update the board# Check for a winner, if the game is not yet completed, call the AI.
         self.player = self.human
         self.board[x][y] = self.player
+
         result = self.checkState(self.board)
         if result != None:
-            if result == 'TIE':
-                print("It's a TIE!")
-                exit()
-            print('{} WON!!'.format(result))
-            exit()
+            self.printResult(result)
+        
         self.player = self.ai
         self.AI()
         self.getBoard()
-            
-        # If the location is not available, try again.
-        # else:
-        #     print('This location is not available. Try Again!!')
-        #     self.getUserInput()
 
     
     # Get coordinates for O's turn.
@@ -188,3 +179,20 @@ class Game:
                         if alpha >= beta:
                             break
             return bestScore
+
+    
+    # Function to print the result of the game.
+    def printResult(self, result):
+        # If the game is TIE.
+            if result == 'TIE':
+                print("\nWell, atleast you didn't loose. Cause that would be embarrassing.\n\n")
+                exit()
+            # If the computer wins.
+            if result == 'X':
+                print("\nYou really suck at this game my friend.\n\n")
+                exit()
+            # The 3 lines below are never excecuted. If they get excecuted, well, that means you are
+            # very intelligent.
+            if result == 'O':
+                print("\nCongrats!! You broke the game -_- \n\n")
+                exit()

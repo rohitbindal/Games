@@ -1,4 +1,17 @@
-# import numpy as np
+'''
+Author: Rohit Kumar Bindal
+Data: 22/04/2020
+Timestamp: 19:34:57
+
+This file contains a console based implementation of Tic Tac Toe using Alpha Beta Pruning.
+The Algorithm itself is in a separate file named board.py which also contains the definition of
+the tic tac toe board.
+
+Important: By default, the AI is set to go first. But, user can be set to go first by commenting
+the game.AI() method call on line:39 in main() function.
+
+'''
+
 import board
 
 
@@ -22,9 +35,7 @@ def main():
     
     RUN = True
     game = board.Game()
-
-    # If you want to be the first to go, comment line:28
-
+    # If you want the AI to be the first to go, uncomment line:39
     game.AI()
     game.getBoard()
     while RUN:
@@ -35,19 +46,7 @@ def main():
         # Check for the result.
         result = game.checkState(game.board)
         if result != None:
-            # If the game is TIE.
-            if result == 'TIE':
-                print("\nWell, atleast you didn't loose. Cause that would be embarrassing.\n\n")
-                exit()
-            # If the computer wins.
-            if result == 'X':
-                print("\nYou really suck at this game my friend.\n\n")
-                exit()
-            # The 3 lines below are never excecuted. If they get excecuted, well, that means you are
-            # very intelligent.
-            if result == 'O':
-                print("\nCongrats!! You broke the game -_- \n\n")
-                exit()
+            game.printResult(result)
 
 
 if __name__ == "__main__":
