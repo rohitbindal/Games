@@ -1,5 +1,5 @@
 # Games
-This repository contains the games that i wrote in python (well, my implementation) while learning Artificial Intelligence. 
+This repository contains the games that i wrote in python (well, my implementation) while getting into Artificial Intelligence. 
 ### 1. <a href="https://github.com/rohitbindal/Games/tree/master/Tic-Tac-Toe-Console" target="blank_">Tic-Tac-Toe-Console</a>  
 This is the console based implementation of Tic Tac Toe game using python.
 ### 2. <a href="https://github.com/rohitbindal/Games/tree/master/Tic-Tac-Toe-AI-version1" target="blank_">Tic-Tac-Toe-AI-version1</a>
