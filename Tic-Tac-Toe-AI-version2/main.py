@@ -42,7 +42,7 @@ def main():
 
         x, y = getUserInput(game)
         game.addToBoard(x, y)
-
+        game.getBoard()
         # Check for the result.
         result = game.checkState(game.board)
         if result != None:

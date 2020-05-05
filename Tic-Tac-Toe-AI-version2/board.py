@@ -3,7 +3,7 @@ import numpy as np
 class Game:
     def __init__(self):
         #Initializing the board.
-        self.board = np.array(['_']*9)
+        self.board = np.array(['']*9)
         self.board = np.reshape(self.board, (3,3))
         self.ai = 'X'
         self.human = 'O'
@@ -19,12 +19,12 @@ class Game:
     
     # Check if there is space on the board or not.
     def hasSpace(self):
-        return '_' in self.board
+        return '' in self.board
         
         
     # Check if the current location is available.
     def checkLocation(self, x, y):
-        return self.board[x][y] == '_'
+        return self.board[x][y] == ''
 
 
     # Function to check if a player has won or the game is a tie.
@@ -38,7 +38,7 @@ class Game:
     
     
     def equals(self, a, b, c):
-        return a == b and b == c and a != '_'
+        return a == b and b == c and a != ''
 
 
     # Funtion to check vertical combinations.
@@ -115,7 +115,7 @@ class Game:
                     # for alpha and infinity for beta.
                     score = self.ALPHA_BETA(self.board, np.NINF, np.Inf, 0, False)
                     # Reset the board to previous state.
-                    self.board[i][j] = '_'
+                    self.board[i][j] = ''
                     # if the acheived score is better than optimascore, store the locations
                     # and score values.
                     if score > optimalScore:
@@ -152,7 +152,7 @@ class Game:
                     if self.checkLocation(i, j):
                         self.board[i][j] = self.ai
                         score = self.ALPHA_BETA(board, alpha, beta, depth + 1, False)
-                        self.board[i][j] = '_'
+                        self.board[i][j] = ''
                         bestScore = max(score, bestScore)
                         # getting the best value for alpha, in this case, the greater value
                         # between alpha and our betscore
@@ -171,7 +171,7 @@ class Game:
                     if self.checkLocation(i, j):
                         board[i][j] = self.human
                         score = self.ALPHA_BETA(board, alpha, beta, depth + 1, True)
-                        board[i][j] = '_'
+                        board[i][j] = ''
                         bestScore = min(score, bestScore)
                         # getting the best value for alpha, in this case, the smaller value
                         # between alpha and our betscore
@@ -194,5 +194,5 @@ class Game:
             # The 3 lines below are never excecuted. If they get excecuted, well, that means you are
             # very intelligent.
             if result == 'O':
-                print("\nCongrats!! You broke the game -_- \n\n")
+                print("\nCongrats!! You broke the game -- \n\n")
                 exit()
